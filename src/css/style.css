@@ -1,0 +1,21 @@
+
+stateSelection{
+visibility: visible;
+}
+
+provinceSelection{
+visibility: visible;
+}
+
+constituentSelection{
+visibility: visible;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.not-visible {
+  visibility: hidden;
+}
+

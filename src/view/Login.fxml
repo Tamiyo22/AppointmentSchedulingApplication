@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login">
+   <children>
+      <AnchorPane id="login" prefHeight="646.4" prefWidth="1049.6" style="-fx-background-color: #FFFFFF;" styleClass="frame" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="224.0" layoutY="195.0" prefHeight="278.0" prefWidth="486.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="339.0">
+               <children>
+                  <TextField fx:id="userName" layoutX="151.0" layoutY="75.0" prefHeight="19.0" prefWidth="255.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="80.0" />
+                  <Button id="loginButton" fx:id="LoginButton" layoutX="96.0" layoutY="209.0" mnemonicParsing="false" onAction="#userAccess" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="Login" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="236.0" />
+                  <PasswordField fx:id="userPassword" layoutX="151.0" layoutY="145.0" prefHeight="26.0" prefWidth="255.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="80.0" />
+                  <Button id="loginCancelButton" fx:id="CancelLoginInButton" layoutX="270.0" layoutY="209.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Cancel" />
+                  <AnchorPane fx:id="Place" layoutY="-164.0" prefHeight="146.0" prefWidth="486.0">
+                     <children>
+                        <Label id="loginGreeting" fx:id="loginGreeting" layoutX="20.0" layoutY="14.0" prefHeight="18.0" prefWidth="134.0" text="Hello! Todays Date is:" textAlignment="CENTER" />
+                        <Label id="Time" fx:id="Time" layoutX="189.0" layoutY="44.0" prefHeight="19.0" prefWidth="116.0" text="Time" textAlignment="CENTER" />
+                        <Label fx:id="Date" layoutX="180.0" layoutY="14.0" prefHeight="25.0" prefWidth="298.0" text=" Date" />
+                        <Label fx:id="timeText" layoutX="20.0" layoutY="45.0" prefHeight="18.0" prefWidth="82.0" text="The Time is:" />
+                        <Label fx:id="thankYouText" layoutX="92.0" layoutY="119.0" prefHeight="9.0" prefWidth="336.0" text="Thank You For Working So Hard Today!    " />
+                        <Label fx:id="Zone" layoutX="184.0" layoutY="77.0" prefHeight="17.0" prefWidth="134.0" text="Zone" />
+                        <Label fx:id="zoneText" layoutX="20.0" layoutY="76.0" prefHeight="18.0" prefWidth="82.0" text="Time Zone is:" />
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="userNameText" layoutX="41.0" layoutY="72.0" prefHeight="17.0" prefWidth="88.0" text="Username" />
+                  <Label fx:id="passwordText" layoutX="41.0" layoutY="149.0" prefHeight="17.0" prefWidth="59.0" text="Password" />
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="pepper" fitHeight="184.0" fitWidth="336.0" layoutX="304.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/pepper.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="biscuit" fitHeight="341.0" fitWidth="184.0" layoutX="15.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/biscuit.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="loofah" fitHeight="278.0" fitWidth="162.0" layoutX="729.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/loofah.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sammy" fitHeight="184.0" fitWidth="185.0" layoutX="714.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/sammy.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="employeePetsText" layoutX="14.0" layoutY="474.0" prefHeight="127.0" prefWidth="285.0" text="Meet Our Employee Pets of the Month!">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

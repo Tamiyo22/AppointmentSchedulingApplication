@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="775.0" prefWidth="997.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenu">
+   <children>
+      <AnchorPane id="Navigation" fx:id="Navigation" layoutX="-1.0" layoutY="83.0" prefHeight="691.0" prefWidth="130.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <Button fx:id="Logout" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" onAction="#exit" prefHeight="56.0" prefWidth="111.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Logout" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="10.0" prefHeight="70.0" prefWidth="997.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #3A3B3C; -fx-border-width: 10;">
+         <children>
+            <AnchorPane layoutX="18.0" layoutY="32.0" prefHeight="37.0" prefWidth="658.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label fx:id="userGreeting" layoutX="14.0" layoutY="14.0" text="Hello" />
+                  <Label fx:id="Time" layoutX="327.0" layoutY="14.0" text="Time" />
+                  <Label fx:id="Date" layoutX="142.0" layoutY="14.0" text="Date" />
+                  <Label fx:id="Zone" layoutX="450.0" layoutY="14.0" text="Zone" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="AppointmentsButton" layoutX="155.0" layoutY="129.0" mnemonicParsing="false" onAction="#goToAppointments" prefHeight="198.0" prefWidth="370.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="Appointments">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="CustomerButton" layoutX="571.0" layoutY="301.0" mnemonicParsing="false" onAction="#goToCustomers" prefHeight="220.0" prefWidth="384.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Customers" textAlignment="JUSTIFY">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="contactReports" layoutX="535.0" layoutY="129.0" mnemonicParsing="false" onAction="#goToContactReports" prefHeight="163.0" prefWidth="403.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="Contact Reports">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="customerAppointments" layoutX="311.0" layoutY="551.0" mnemonicParsing="false" onAction="#goToTypeAppointments" prefHeight="185.0" prefWidth="532.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="Customer Appointment Month &amp; Type Reports" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="LocationReportButton" layoutX="146.0" layoutY="347.0" mnemonicParsing="false" onAction="#goToLocationReports" prefHeight="192.0" prefWidth="415.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="Appointment Location Reports" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

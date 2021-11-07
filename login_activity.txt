@@ -1,0 +1,72 @@
+Nov 05, 2021 3:01:46 AM controller.Login userAccess
+INFO: User Unknown login unsuccessful
+Nov 05, 2021 3:01:53 AM controller.Login userAccess
+INFO: User test login unsuccessful
+Nov 05, 2021 3:02:04 AM controller.Login userAccess
+INFO: User test login successful
+Nov 05, 2021 3:25:28 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 3:28:27 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 3:30:45 AM controller.Login userAccess
+INFO: User test login successful
+Nov 05, 2021 3:44:34 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 4:18:55 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 5:16:45 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 5:40:04 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:00:58 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 11:01:31 AM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 5:23:20 PM controller.Login userAccess
+INFO: User test login successful
+Nov 05, 2021 5:25:24 PM controller.Login userAccess
+INFO: User test login successful
+Nov 05, 2021 5:46:54 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:21:40 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:33:35 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:36:07 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:38:34 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:40:09 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:40:44 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:41:19 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:41:53 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:42:35 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:43:14 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 6:50:34 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 7:06:08 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 7:11:42 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 7:18:20 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 7:34:29 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 7:50:18 PM controller.Login userAccess
+INFO: User test login successful
+Nov 05, 2021 8:03:47 PM controller.Login userAccess
+INFO: User test login unsuccessful
+Nov 05, 2021 8:03:54 PM controller.Login userAccess
+INFO: User test login successful
+Nov 05, 2021 8:04:34 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 05, 2021 8:12:50 PM controller.Login userAccess
+INFO: User admin login successful
+Nov 07, 2021 5:36:56 PM controller.Login userAccess
+INFO: User admin login successful

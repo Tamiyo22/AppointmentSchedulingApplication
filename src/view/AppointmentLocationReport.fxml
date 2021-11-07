@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="783.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppointmentByLocationReport">
+   <children>
+      <TableView fx:id="locationTable" layoutX="205.0" layoutY="347.0" prefHeight="446.0" prefWidth="938.0" style="-fx-border-color: #3A3B3C;">
+        <columns>
+          <TableColumn fx:id="appointID" prefWidth="106.40000915527344" text="Appointment ID" />
+          <TableColumn fx:id="appointTitle" prefWidth="177.60000610351562" text="Title" />
+            <TableColumn fx:id="appointType" prefWidth="129.60003662109375" text="Type" />
+            <TableColumn fx:id="startTime" prefWidth="117.5999755859375" text="Start" />
+            <TableColumn fx:id="endTime" prefWidth="124.800048828125" text="End" />
+            <TableColumn fx:id="customerID" prefWidth="82.40008544921875" text="Customer Id" />
+            <TableColumn fx:id="appointDescription" prefWidth="197.59991455078125" text="Description" />
+        </columns>
+      </TableView>
+      <Label graphicTextGap="20.0" layoutX="206.0" layoutY="128.0" prefHeight="56.0" prefWidth="602.0" style="-fx-text-fill: #34A853;" text=" Appointment Location Reports">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font></Label>
+      <AnchorPane id="Navigation" fx:id="Navigation" layoutX="-3.0" layoutY="76.0" prefHeight="727.0" prefWidth="168.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <Button fx:id="Logout" layoutX="13.0" layoutY="411.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Logout" />
+            <Button fx:id="Home" layoutX="13.0" layoutY="120.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="Home" />
+            <Button fx:id="AppointmentsButton" layoutX="14.0" layoutY="215.0" mnemonicParsing="false" onAction="#goToAppointments" prefHeight="35.0" prefWidth="141.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="Appointments" />
+            <Button fx:id="CustomerButton" layoutX="14.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToCustomers" prefHeight="35.0" prefWidth="141.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="Customers" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="PhoenixButton" layoutX="980.0" layoutY="207.0" mnemonicParsing="false" onAction="#loadPhoenixTable" prefHeight="42.0" prefWidth="142.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="Phoenix, Arizona" />
+      <Button fx:id="NewYorkButton" layoutX="764.0" layoutY="207.0" mnemonicParsing="false" onAction="#loadWhitePlainsTable" prefHeight="42.0" prefWidth="168.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="White Plains, New York" />
+      <AnchorPane layoutX="-3.0" layoutY="16.0" prefHeight="64.0" prefWidth="1182.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #3A3B3C; -fx-border-width: 10;">
+         <children>
+            <AnchorPane layoutX="18.0" layoutY="34.0" prefHeight="35.0" prefWidth="658.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label fx:id="userGreeting" layoutX="14.0" layoutY="14.0" text="Hello" />
+                  <Label fx:id="Time" layoutX="327.0" layoutY="14.0" text="Time" />
+                  <Label fx:id="Date" layoutX="142.0" layoutY="14.0" text="Date" />
+                  <Label fx:id="Zone" layoutX="450.0" layoutY="14.0" text="Zone" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="MontrealButton" layoutX="789.0" layoutY="261.0" mnemonicParsing="false" onAction="#loadMontrealTable" prefHeight="42.0" prefWidth="142.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Montreal, Canada" />
+      <Label fx:id="locationName" layoutX="249.0" layoutY="298.0" prefHeight="30.0" prefWidth="370.0" text="Label" />
+      <Button fx:id="LondonButton" layoutX="980.0" layoutY="261.0" mnemonicParsing="false" onAction="#loadLondonTable" prefHeight="42.0" prefWidth="142.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="London, England" />
+   </children>
+</AnchorPane>

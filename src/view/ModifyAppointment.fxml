@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="628.0" prefWidth="757.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyAppointmentController">
+   <children>
+      <AnchorPane id="addAppointment" layoutX="128.0" layoutY="62.0" prefHeight="570.0" prefWidth="644.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label id="label" layoutX="7.0" layoutY="25.0" prefHeight="18.0" prefWidth="110.0" text="Appointment ID" />
+            <Label id="label" layoutX="1.0" layoutY="128.0" text="Title" />
+            <Label id="label" layoutX="1.0" layoutY="183.0" text="Description" />
+            <Label id="label" layoutX="2.0" layoutY="241.0" text="Location" />
+            <Label id="label" layoutX="-1.0" layoutY="298.0" text="Contact" />
+            <Label id="label" layoutX="-1.0" layoutY="345.0" text="Type" />
+            <TextField fx:id="addAppointmentID" editable="false" layoutX="143.0" layoutY="21.0" prefHeight="26.0" prefWidth="158.0" text="SYSTEM GENERATED" />
+            <TextField fx:id="addAppointmentTitle" layoutX="106.0" layoutY="111.0" prefHeight="26.0" prefWidth="294.0" promptText="Enter Meeting Title" style="-fx-border-color: #3A3B3C;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></TextField>
+            <Label id="label" layoutX="3.0" layoutY="405.0" text="Start Date " />
+            <Label id="label" layoutX="1.0" layoutY="460.0" prefHeight="26.0" prefWidth="68.0" text="End Date" />
+            <Label id="label" layoutX="3.0" layoutY="70.0" text="Customer ID" />
+            <DatePicker fx:id="addStartDate" layoutX="76.0" layoutY="401.0" prefHeight="26.0" prefWidth="206.0" promptText="Pick A Start Date" />
+            <DatePicker fx:id="addEndDate" layoutX="76.0" layoutY="461.0" prefHeight="26.0" prefWidth="206.0" promptText="Pick A End Date" />
+            <ChoiceBox fx:id="addAppointmentContact" layoutX="104.0" layoutY="293.0" prefHeight="28.0" prefWidth="270.0" />
+            <ChoiceBox fx:id="addAppointmentType" layoutX="104.0" layoutY="340.0" prefHeight="28.0" prefWidth="270.0" />
+            <ChoiceBox fx:id="addStartHour" layoutX="386.0" layoutY="400.0" prefHeight="26.0" prefWidth="90.0" />
+            <ChoiceBox fx:id="addEndHour" layoutX="386.0" layoutY="460.0" prefHeight="28.0" prefWidth="90.0" />
+            <Label id="label" layoutX="312.0" layoutY="405.0" text="Start Time" />
+            <Label id="label" layoutX="315.0" layoutY="465.0" text="End Time" />
+            <Label id="label" layoutX="343.0" layoutY="71.0" text="User ID" />
+            <TextField fx:id="addUserID" editable="false" layoutX="414.0" layoutY="67.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #3A3B3C;" />
+            <ChoiceBox fx:id="addAppointmentCustomerID" layoutX="117.0" layoutY="66.0" prefWidth="150.0" />
+            <TextArea fx:id="addAppointmentDescription" layoutX="104.0" layoutY="158.0" prefHeight="68.0" prefWidth="317.0" promptText="Add Appointment Description.">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextArea>
+            <ChoiceBox fx:id="addAppointmentLocation" layoutX="104.0" layoutY="236.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="AMPMStart" layoutX="545.0" layoutY="400.0" prefHeight="18.0" prefWidth="74.0" />
+            <ChoiceBox fx:id="AMPMEnd" layoutX="545.0" layoutY="460.0" prefHeight="18.0" prefWidth="74.0" />
+            <Label layoutX="489.0" layoutY="405.0" text="AM/PM" />
+            <Label layoutX="489.0" layoutY="464.0" text="AM/PM" />
+
+
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-1.0" layoutY="59.0" prefHeight="578.0" prefWidth="122.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <Button fx:id="save" layoutX="23.0" layoutY="198.0" mnemonicParsing="false" onAction="#updateAppointment" prefHeight="26.0" prefWidth="61.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="Save" />
+            <Button fx:id="Cancel" layoutX="23.0" layoutY="277.0" mnemonicParsing="false" onAction="#goToAppointments" prefHeight="26.0" prefWidth="61.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Cancel" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="61.0" prefWidth="763.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #3A3B3C; -fx-border-width: 10;" />
+   </children>
+</AnchorPane>
