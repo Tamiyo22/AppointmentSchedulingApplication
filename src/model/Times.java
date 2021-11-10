@@ -79,11 +79,9 @@ public class Times {
      */
     public static LocalTime convertToLocalTime (LocalDateTime time){
           String zone = ZoneId.systemDefault().getId();
-
         ZonedDateTime zdtStaring = time.atZone(ZoneId.of("UTC"));
         ZonedDateTime utcZonedStarting = zdtStaring.withZoneSameInstant(ZoneId.of(zone));
         LocalDateTime ldtInStarting = utcZonedStarting.toLocalDateTime();
-
         return ldtInStarting.toLocalTime();
     }
 
@@ -95,19 +93,11 @@ public class Times {
      */
     public static LocalDateTime convertToLocalDateTime (LocalDateTime time){
         String zone = ZoneId.systemDefault().getId();
-
         ZonedDateTime zdtStaring = time.atZone(ZoneId.of("UTC"));
         ZonedDateTime utcZonedStarting = zdtStaring.withZoneSameInstant(ZoneId.of(zone));
         LocalDateTime ldtInStarting = utcZonedStarting.toLocalDateTime();
 
-
         return ldtInStarting;
     }
-
-
-
-
-
-
 
 }

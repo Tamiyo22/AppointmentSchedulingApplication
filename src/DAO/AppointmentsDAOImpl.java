@@ -57,6 +57,7 @@ public class AppointmentsDAOImpl {
 
         for(Appointment appointment : allAppointments){
 
+
             LocalDateTime start = Times.convertToLocalDateTime(appointment.getStart());
             LocalDateTime end = Times.convertToLocalDateTime(appointment.getEnd());
 
@@ -64,8 +65,6 @@ public class AppointmentsDAOImpl {
             appointment.setEnd(end);
 
         }
-
-
 
         return allAppointments;
 
@@ -108,10 +107,13 @@ public static ObservableList<Appointment> getAllContactAppointments(){
 
     for(Appointment appointment : allAppointments){
 
+
         LocalDateTime start = Times.convertToLocalDateTime(appointment.getStart());
+        System.out.println(start);
         LocalDateTime end = Times.convertToLocalDateTime(appointment.getEnd());
 
         appointment.setStart(start);
+        System.out.println(appointment.getStart());
         appointment.setEnd(end);
 
     }

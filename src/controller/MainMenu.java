@@ -74,10 +74,11 @@ public class MainMenu extends Login implements Initializable {
             LocalTime nowTime= LocalTime.now();
             long timeDifference = ChronoUnit.MINUTES.between(nowTime,appStart);
 
-            if((timeDifference  >= 13) && (timeDifference < 16 ) ){
+            if(timeDifference  <= 15  && timeDifference  > 0){
+
                 found = true;
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("There is a appointment in approximately 15 minutes or less!");
+                alert.setContentText("You have a appointment in the next 15 minutes.");
                 alert.show();
 
                 break;

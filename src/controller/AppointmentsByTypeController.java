@@ -124,7 +124,7 @@ public class AppointmentsByTypeController extends AppointmentsController impleme
      * creating a AppointmentType object from it, and adding that element to the types observable list and then setting
      * those values to the main table to be viewed by the user.
      * </p>
-     * @param monthNum
+     * @param monthNum int associated with the month.
      */
 
 public void loadMonthTable(int monthNum){
@@ -155,7 +155,7 @@ public void loadMonthTable(int monthNum){
      * This method calls the loadMonthTable with the associated number for January to set the typesTable with
      *  January appointment type counts.
      * </p>
-     * @param event
+     * @param event on January button click.
      */
 
     @FXML
@@ -174,7 +174,7 @@ public void loadMonthTable(int monthNum){
      * This method calls the loadMonthTable with the associated number for February to set the typesTable with
      *  February appointment type counts.
      * </p>
-     * @param event
+     * @param event on February button click.
      */
 
     @FXML

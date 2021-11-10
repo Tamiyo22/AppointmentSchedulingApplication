@@ -271,7 +271,6 @@ This method loads the selected appointment to a new stage to be modified.
 
            appointments.addAll(AppointmentsDAOImpl.getAllAppointments());
 
-
         } catch (Exception e) {
             System.out.println(e);
 
