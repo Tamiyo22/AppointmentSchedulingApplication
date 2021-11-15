@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -65,14 +66,15 @@ public class MainMenu extends Login implements Initializable {
      * if the start time falls roughly around 15 minutes, then the user will get an alert when they log in.
      * </p>
      */
+    /*
       public static void appointmentAlert(){
         boolean found = false;
         for(Appointment appointment : AppointmentsDAOImpl.getAllAppointments()){
-            LocalDateTime start = appointment.getStart();
-            LocalTime appStart= LocalTime.of(start.getHour(),start.getMinute());
+            // start = appointment.getStart();
+            //LocalTime appStart= LocalTime.of(start.getHour(),start.getMinute());
 
             LocalTime nowTime= LocalTime.now();
-            long timeDifference = ChronoUnit.MINUTES.between(nowTime,appStart);
+           // long timeDifference = ChronoUnit.MINUTES.between(nowTime,appStart);
 
             if(timeDifference  <= 15  && timeDifference  > 0){
 
@@ -94,7 +96,7 @@ public class MainMenu extends Login implements Initializable {
         }
 
 
-
+*/
 
 
     /**

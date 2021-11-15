@@ -153,7 +153,7 @@ public class ContactAppointReportController extends AppointmentsController imple
          endTime.setCellValueFactory(new PropertyValueFactory<>("End"));
          customerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
 
-         appointments.addAll(AppointmentsDAOImpl.getAllContactAppointments());
+         appointments.addAll(AppointmentsDAOImpl.getAllAppointments());
 
      } catch (Exception e) {
          System.out.println(e);

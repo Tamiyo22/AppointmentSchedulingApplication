@@ -11,6 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import util.TimeManger;
+
+import java.time.*;
 
 /**
  * The class holds methods that start the program.
@@ -43,6 +46,25 @@ public class Main extends Application {
      */
 
     public static void main(String[] args) {
+        ZoneId local = ZoneId.systemDefault();
+        LocalDate ld = LocalDate.now();
+        LocalTime lt = LocalTime.of(14,00);
+        LocalDateTime ldt = LocalDateTime.of(ld,lt);
+        ZonedDateTime zdt = ZonedDateTime.of(ldt, local);
+
+        ZoneId est = ZoneId.of("America/New_York");
+        ZoneId utc = ZoneId.of("UTC");
+        System.out.println(TimeManger.changeTimeZone(zdt,utc));
+
+        LocalDateTime start = TimeManger.changeTimeZone(zdt,utc).toLocalDateTime();
+        System.out.println(start);
+        String startStr = start.toString().replace("T"," ");
+        System.out.println(startStr);
+        LocalDateTime startLdt = LocalDateTime.parse(startStr.replace(" ","T"));
+        ZonedDateTime zdtStart = ZonedDateTime.of(startLdt,utc);
+
+        System.out.println(TimeManger.changeTimeZone(zdtStart,local));
+
 
 
 

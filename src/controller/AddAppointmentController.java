@@ -23,9 +23,9 @@ import model.User;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.sql.Timestamp;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 /**
@@ -116,17 +116,17 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      */
     public boolean startBeforeEnd(LocalDate start, LocalTime startHour , LocalDate end, LocalTime endHour){
 
-         if(start.isAfter(end)){
+        if(start.isAfter(end)){
 
-             return true;
-         }
-
-         if(endHour.isBefore(startHour)){
-
-             return true;
+            return true;
         }
 
-       return false;
+        if(endHour.isBefore(startHour)){
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -198,7 +198,7 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      * @param event
      */
     public void selectContacts(ActionEvent event){
-         addAppointmentContact.getValue();
+        addAppointmentContact.getValue();
     }
 
     /**
@@ -213,7 +213,7 @@ public class AddAppointmentController extends MainMenu implements Initializable 
     public int getContactID() {
         int id = -1;
         if(addAppointmentContact.getValue() != null) {
-             id =ContactDAOImpl.getContactID(addAppointmentContact.getValue());
+            id =ContactDAOImpl.getContactID(addAppointmentContact.getValue());
         }
         return id;
     }
@@ -259,7 +259,7 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      */
 
     public void selectLocation(ActionEvent event){
-       addAppointmentLocation.getValue();
+        addAppointmentLocation.getValue();
     }
 
     /**
@@ -301,7 +301,7 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      * @param event
      */
     public void selectEndHour(ActionEvent event){
-      endHour= addEndHour.getValue();
+        endHour= addEndHour.getValue();
     }
 
     /**
@@ -352,38 +352,38 @@ public class AddAppointmentController extends MainMenu implements Initializable 
 
     public boolean hasAppointmentsAtTime(int id,LocalDateTime start, LocalDateTime end)  {
 
-    for (Appointment appointment : AppointmentsDAOImpl.getAllAppointments()) {
+        for (Appointment appointment : AppointmentsDAOImpl.getAllAppointments()) {
 
-        int customer = appointment.getCustomerID();
-
-
-        if (customer == id) {
+            int customer = appointment.getCustomerID();
 
 
-            LocalDateTime appointStart = appointment.getStart();
-            LocalDateTime appointEnd = appointment.getEnd();
+            if (customer == id) {
+
+
+                LocalDateTime appointStart = appointment.getStart();
+                LocalDateTime appointEnd = appointment.getEnd();
 
 
 
 
-            if ((appointStart.isAfter(start) || appointStart.isEqual(start)) && appointStart.isBefore(end)) {
+                if ((appointStart.isAfter(start) || appointStart.isEqual(start)) && appointStart.isBefore(end)) {
 
-                return true;
-            }
+                    return true;
+                }
 
-           else if (appointEnd.isAfter(start)  && (appointEnd.isBefore(end) || appointEnd.isEqual(end))){
+                else if (appointEnd.isAfter(start)  && (appointEnd.isBefore(end) || appointEnd.isEqual(end))){
 
-                return true;
-            }
+                    return true;
+                }
 
-            else if ((appointStart.isBefore(start) || appointStart.isEqual(start)) && (appointEnd.isAfter(end) || appointEnd.isEqual(end))) {
+                else if ((appointStart.isBefore(start) || appointStart.isEqual(start)) && (appointEnd.isAfter(end) || appointEnd.isEqual(end))) {
 
-                return true;
+                    return true;
 
 
+                }
             }
         }
-    }
 
         return false;
     }
@@ -400,25 +400,18 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      */
 
     public void saveAppointment(ActionEvent event) throws Exception {
-
+       // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+      //  Long offsetToUTC = Long.valueOf((ZonedDateTime.now().getOffset()).getTotalSeconds());
         try {
             String title = addAppointmentTitle.getText();
-
             String description = addAppointmentDescription.getText();
-
             String location = addAppointmentLocation.getValue();
-
-
             String type = addAppointmentType.getValue();
-
-
             LocalDateTime createDate = LocalDateTime.now();
             String createdBy = loggedInUser;
             LocalDateTime lastUpdate = LocalDateTime.now();
             String lastUpdatedBy = User.getLoggedUser();
             int customerID = addAppointmentCustomerID.getValue();
-
-
             int userID = UsersDAOImpl.getUserId(Login.loggedInUser);
             int contactID = getContactID();
 
@@ -446,8 +439,27 @@ public class AddAppointmentController extends MainMenu implements Initializable 
             }
 
 
+           // System.out.println(startDate);
+           // System.out.println(startHour);
+
+            //having issues with parsing so I wondered if I could put these two together manually
+           // String date = startDate+"T"+startHour;
+
+
+           // LocalDateTime newStartTest = LocalDateTime.parse(date);
+
             LocalDateTime officialStart = LocalDateTime.of(startDate, startHour);
             LocalDateTime officialEnd = LocalDateTime.of(endDate, endHour);
+
+            //tried to parse
+          //  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd kk:mm:ss.S");
+           // String txtStartTime = (startDate.toString()+ startHour);
+
+            //tried to parse
+           // LocalDateTime ldtStart = LocalDateTime.parse(txtStartTime, df);
+
+
+
 
 
             if (Times.withInBusinessHours(officialStart, AMPMStart.getValue(),AMPMEnd.getValue(), officialEnd)) {
@@ -461,10 +473,19 @@ public class AddAppointmentController extends MainMenu implements Initializable 
                 return;
             }
 
+
+
             if (hasAppointmentsAtTime(customerID, officialStart, officialEnd)) {
                 errorAlert("Your customer has another appointment at this time");
                 return;
             }
+
+            //Caused by: java.time.format.DateTimeParseException: Text '2021-11-1614:00' could not be parsed at index 10
+            //when entered ldt
+           // LocalDateTime ldt = LocalDateTime.of(officialStart.getYear(), officialStart.getMonthValue(), officialStart.getDayOfMonth(), officialStart.getHour(), officialStart.getMinute());
+
+            //last used
+           // LocalDateTime starting = officialStart.minus(Duration.ofSeconds(offsetToUTC));
 
 
 
@@ -482,13 +503,13 @@ public class AddAppointmentController extends MainMenu implements Initializable 
         alert.showAndWait();
 
         try{
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/Appointments.fxml"));
-        Parent parent = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(parent, 1200, 1000);
-        stage.setTitle("Appointments");
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/Appointments.fxml"));
+            Parent parent = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(parent, 1200, 1000);
+            stage.setTitle("Appointments");
+            stage.setScene(scene);
+            stage.show();
 
         } catch (IOException error) {
             error.printStackTrace();

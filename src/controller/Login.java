@@ -302,7 +302,7 @@ public static void createLog(){
                 newWindow.show();
                 Stage currentWindow = (Stage) LoginButton.getScene().getWindow();
                 currentWindow.close();
-                MainMenu.appointmentAlert();
+               // MainMenu.appointmentAlert();
             } catch (IOException error) {
                 error.printStackTrace();
             }

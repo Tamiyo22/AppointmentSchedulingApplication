@@ -189,7 +189,7 @@ import java.util.ResourceBundle;
                 endTime.setCellValueFactory(new PropertyValueFactory<>("End"));
                 customerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
 
-                appointments.addAll(AppointmentsDAOImpl.getAllContactAppointments());
+                appointments.addAll(AppointmentsDAOImpl.getAllAppointments());
 
 
             } catch (Exception e) {

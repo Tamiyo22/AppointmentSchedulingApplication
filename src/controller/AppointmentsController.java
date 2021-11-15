@@ -142,7 +142,7 @@ public class AppointmentsController extends MainMenu implements Initializable {
         appointmentTable.setItems(appointments);
         appointmentTable.setItems(weeklyAppointmentList);
 
-        }
+    }
 
     /**
      * The method shows all of the appointments for the upcoming month.
@@ -177,14 +177,14 @@ public class AppointmentsController extends MainMenu implements Initializable {
 
     }
 
-/**
-This method loads the selected appointment to a new stage to be modified.
- <p>
- This method takes the appointment that has been selected by the user, and loads it onto the Modify Appointment
- stage. If the user has not selected a appointment, but has still clicked the button, it tells them to select
- an appointment.
- </p>
- */
+    /**
+     This method loads the selected appointment to a new stage to be modified.
+     <p>
+     This method takes the appointment that has been selected by the user, and loads it onto the Modify Appointment
+     stage. If the user has not selected a appointment, but has still clicked the button, it tells them to select
+     an appointment.
+     </p>
+     */
     @FXML
     void goToModifyAppointment(ActionEvent event) throws Exception {
 
@@ -269,7 +269,7 @@ This method loads the selected appointment to a new stage to be modified.
             userID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
 
 
-           appointments.addAll(AppointmentsDAOImpl.getAllAppointments());
+            appointments.addAll(AppointmentsDAOImpl.getAllAppointments());
 
         } catch (Exception e) {
             System.out.println(e);
@@ -303,21 +303,21 @@ This method loads the selected appointment to a new stage to be modified.
             Appointment appointment = appointmentTable.getSelectionModel().getSelectedItem();
             if(appointment != null){
 
-            int appointmentToDelete = appointment.getAppointmentID();
-            AppointmentsDAOImpl.deleteAppointment(appointmentToDelete);
+                int appointmentToDelete = appointment.getAppointmentID();
+                AppointmentsDAOImpl.deleteAppointment(appointmentToDelete);
 
 
-            alert.setHeaderText("You have deleted appointment Id "+ appointment.getAppointmentID() +" which was a "+appointment.getType()+" appointment.");
-            alert.setTitle("You Have Removed a Appointment!");
-            alert.setContentText(null);
-            alert.showAndWait();
+                alert.setHeaderText("You have deleted appointment Id "+ appointment.getAppointmentID() +" which was a "+appointment.getType()+" appointment.");
+                alert.setTitle("You Have Removed a Appointment!");
+                alert.setContentText(null);
+                alert.showAndWait();
 
-             appointments.clear();
-            loadAppointmentsTable();
+                appointments.clear();
+                loadAppointmentsTable();
 
-        } else {
-            errorAlerts("Please select a Appointment to delete.");
-            return;
+            } else {
+                errorAlerts("Please select a Appointment to delete.");
+                return;
             }
         }
 
@@ -340,5 +340,3 @@ This method loads the selected appointment to a new stage to be modified.
 
 
 }
-
-

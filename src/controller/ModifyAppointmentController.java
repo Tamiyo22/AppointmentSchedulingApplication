@@ -78,7 +78,7 @@ public class ModifyAppointmentController extends AddAppointmentController implem
     @FXML
     private TextField addUserID;
 
-     Appointment meeting;
+    Appointment meeting;
 
 
     /**
@@ -102,37 +102,37 @@ public class ModifyAppointmentController extends AddAppointmentController implem
     public boolean hasAppointmentsAtTime(int id,int appointmentID,LocalDateTime start, LocalDateTime end)  {
 
 
-                for (Appointment appointment : AppointmentsDAOImpl.getAllAppointments()) {
+        for (Appointment appointment : AppointmentsDAOImpl.getAllAppointments()) {
 
-                    int customer = appointment.getCustomerID();
-                    int appointId =appointment.getAppointmentID();
-
-
-                    if ((customer == id ) && (appointId != appointmentID)) {
-
-                        LocalDateTime appointStart = appointment.getStart();
-                        LocalDateTime appointEnd = appointment.getEnd();
+            int customer = appointment.getCustomerID();
+            int appointId =appointment.getAppointmentID();
 
 
-                        if ((appointStart.isAfter(start) || appointStart.isEqual(start)) && appointStart.isBefore(end)) {
+            if ((customer == id ) && (appointId != appointmentID)) {
 
-                            return true;
-                        }
+                LocalDateTime appointStart = appointment.getStart();
+                LocalDateTime appointEnd = appointment.getEnd();
 
-                        else if (appointEnd.isAfter(start)  && (appointEnd.isBefore(end) || appointEnd.isEqual(end))){
 
-                            return true;
-                        }
+                if ((appointStart.isAfter(start) || appointStart.isEqual(start)) && appointStart.isBefore(end)) {
 
-                        else if ((appointStart.isBefore(start) || appointStart.isEqual(start)) && (appointEnd.isAfter(end) || appointEnd.isEqual(end))) {
-
-                            return true;
-
-                        }
-                    }
+                    return true;
                 }
 
-                return false;
+                else if (appointEnd.isAfter(start)  && (appointEnd.isBefore(end) || appointEnd.isEqual(end))){
+
+                    return true;
+                }
+
+                else if ((appointStart.isBefore(start) || appointStart.isEqual(start)) && (appointEnd.isAfter(end) || appointEnd.isEqual(end))) {
+
+                    return true;
+
+                }
+            }
+        }
+
+        return false;
     }
 
 
@@ -151,7 +151,7 @@ public class ModifyAppointmentController extends AddAppointmentController implem
             String contact = ContactDAOImpl.getContactName(meeting.getContactID());
             String location = meeting.getLocation();
 
-             String userId = Integer.toString(UsersDAOImpl.getUserId(Login.loggedInUser));
+            String userId = Integer.toString(UsersDAOImpl.getUserId(Login.loggedInUser));
 
             addAppointmentTitle.setText(meeting.getTitle());
             addAppointmentDescription.setText(meeting.getDescription());
@@ -210,64 +210,64 @@ public class ModifyAppointmentController extends AddAppointmentController implem
 
     public void updateAppointment(ActionEvent event) throws Exception {
 
-try {
+        try {
 
-    int appointmentID = Integer.parseInt(addAppointmentID.getText());
-    System.out.println(appointmentID);
-    String title = addAppointmentTitle.getText();
-    String description = addAppointmentDescription.getText();
-    String location = addAppointmentLocation.getValue();
-    String type = addAppointmentType.getValue();
-    LocalDateTime lastUpdate = LocalDateTime.now();
-    String lastUpdatedBy = loggedInUser;
-    int customerID = addAppointmentCustomerID.getValue();
-    int userID = UsersDAOImpl.getUserId(Login.loggedInUser);
-    int contactID = ContactDAOImpl.getContactID(addAppointmentContact.getValue());
-
-
-    LocalDate startDate = addStartDate.getValue();
-    LocalTime startHour = addStartHour.getValue();
-
-    LocalDate endDate = addEndDate.getValue();
-    LocalTime endHour = addEndHour.getValue();
-
-    if(startDate.isBefore(LocalDate.now())){
-        errorAlert("Please select a date in the future.");
-        return;
-    }
-
-    if (AMPMStart.getValue().equals("PM") && startHour.getHour() != 12) {
-        startHour = startHour.plusHours(12);
-    }
-
-    if (AMPMEnd.getValue().equals("PM")&& endHour.getHour() != 12) {
-        endHour = endHour.plusHours(12);
-    }
+            int appointmentID = Integer.parseInt(addAppointmentID.getText());
+            System.out.println(appointmentID);
+            String title = addAppointmentTitle.getText();
+            String description = addAppointmentDescription.getText();
+            String location = addAppointmentLocation.getValue();
+            String type = addAppointmentType.getValue();
+            LocalDateTime lastUpdate = LocalDateTime.now();
+            String lastUpdatedBy = loggedInUser;
+            int customerID = addAppointmentCustomerID.getValue();
+            int userID = UsersDAOImpl.getUserId(Login.loggedInUser);
+            int contactID = ContactDAOImpl.getContactID(addAppointmentContact.getValue());
 
 
-    LocalDateTime officialStart = LocalDateTime.of(startDate, startHour);
-    LocalDateTime officialEnd = LocalDateTime.of(endDate, endHour);
+            LocalDate startDate = addStartDate.getValue();
+            LocalTime startHour = addStartHour.getValue();
+
+            LocalDate endDate = addEndDate.getValue();
+            LocalTime endHour = addEndHour.getValue();
+
+            if(startDate.isBefore(LocalDate.now())){
+                errorAlert("Please select a date in the future.");
+                return;
+            }
+
+            if (AMPMStart.getValue().equals("PM") && startHour.getHour() != 12) {
+                startHour = startHour.plusHours(12);
+            }
+
+            if (AMPMEnd.getValue().equals("PM")&& endHour.getHour() != 12) {
+                endHour = endHour.plusHours(12);
+            }
 
 
-    if (Times.withInBusinessHours(officialStart, AMPMStart.getValue(),AMPMEnd.getValue(), officialEnd)) {
-        errorAlert("Please create a appointment within 8 AM and 10 PM EST.");
-        return;
-    }
+            LocalDateTime officialStart = LocalDateTime.of(startDate, startHour);
+            LocalDateTime officialEnd = LocalDateTime.of(endDate, endHour);
 
-    if (startBeforeEnd(startDate,startHour , endDate, endHour)) {
-        errorAlert("Your start time must be before your end time");
-        return;
-    }
 
-    if (hasAppointmentsAtTime(customerID, appointmentID, officialStart, officialEnd)) {
-        errorAlert("Your customer has another appointment at this time");
-        return;
-    }
+            if (Times.withInBusinessHours(officialStart, AMPMStart.getValue(),AMPMEnd.getValue(), officialEnd)) {
+                errorAlert("Please create a appointment within 8 AM and 10 PM EST.");
+                return;
+            }
 
-    AppointmentsDAOImpl.updateAppointment(appointmentID, title, description, location, type, officialStart, officialEnd, lastUpdate, lastUpdatedBy, customerID, userID, contactID);
-}catch (NullPointerException e){
-    errorAlert("Please make sure all fields are filled out!");
-}
+            if (startBeforeEnd(startDate,startHour , endDate, endHour)) {
+                errorAlert("Your start time must be before your end time");
+                return;
+            }
+
+            if (hasAppointmentsAtTime(customerID, appointmentID, officialStart, officialEnd)) {
+                errorAlert("Your customer has another appointment at this time");
+                return;
+            }
+
+            AppointmentsDAOImpl.updateAppointment(appointmentID, title, description, location, type, officialStart, officialEnd, lastUpdate, lastUpdatedBy, customerID, userID, contactID);
+        }catch (NullPointerException e){
+            errorAlert("Please make sure all fields are filled out!");
+        }
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("You have updated an appointment");
@@ -313,6 +313,6 @@ try {
         addAppointmentCustomerID.setOnAction(this::selectIDs);
         addAppointmentLocation.setOnAction(this::selectLocation);
 
-     }
-
     }
+
+}
