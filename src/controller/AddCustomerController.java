@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Customer;
 import model.Division;
 
 import java.io.IOException;
@@ -307,14 +308,26 @@ public class AddCustomerController extends MainMenu implements Initializable {
             String lastUpdateBy = loggedInUser;
             LocalDateTime lastUpdate = LocalDateTime.now();
 
-            if (customerName == null) {
+            if(divisionID == -1){
+                errorAlert("Please fill out all fields for this customer!");
                 return;
             }
 
+            if(customerName == null || address == null|| postalCode == null || phone == null  || createdBy == null){
+                errorAlert("Please fill out all fields for this customer!");
+                return;
+            }
+
+
+
+            System.out.println(customerName);
             CustomerDAOImpl.addCustomer(customerName, address, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy, divisionID);
-        }catch (NullPointerException e){
-            errorAlert("Please fill out all fields for this customer");
+        } catch(NullPointerException e){
+            errorAlert("Please fill out all fields for this customer!");
+            return;
         }
+
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Added New Customer!");
             alert.setHeaderText("You Have Successfully Added a New Customer!");
@@ -328,13 +341,11 @@ public class AddCustomerController extends MainMenu implements Initializable {
                 Scene scene = new Scene(parent, 1200, 1000);
                 stage.setTitle("Customers");
                 stage.setScene(scene);
-                CustomersController controller = loader.getController();
                 stage.show();
 
             } catch (IOException error) {
                 error.printStackTrace();
             }
-
 
         }
 

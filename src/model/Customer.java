@@ -87,6 +87,7 @@ public class Customer {
 
     }
 
+public Customer(){};
 
     /**
      * The method returns the customer ID.

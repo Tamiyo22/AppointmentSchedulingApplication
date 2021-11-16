@@ -4,7 +4,7 @@ A GUI-based scheduling desktop application that pulls and creates data from a My
 •  Appointment Scheduler for Employees, The purpose is to help employees of a global consulting organization organize their meetings, and customers
 while providing their data analyst reports to analyze  in order to help the organization focus which areas need additional focus.
 
-•  Melissa Aybar, maybar@my.wgu.edu, student application version: 3, and 10.31.21
+•  Melissa Aybar, maybar@my.wgu.edu, student application version: 3, and 11.16.21
 
 •  IntelliJ Community 2020.01, Java SE 11.0.10), and JavaFX-SDK-11.0.2)
 

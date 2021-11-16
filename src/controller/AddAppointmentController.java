@@ -18,14 +18,11 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import model.Appointment;
-import model.Times;
-import model.User;
+import util.Times;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 /**
@@ -82,18 +79,6 @@ public class AddAppointmentController extends MainMenu implements Initializable 
 
 
 
-
-    /**
-     * Note:
-     * <p>
-     * Meeting types, locations and Morning Night are listed as private static final to reduce the memory foot print since these will be shared across and inherited.
-     *  For the types of meetings, I choose to hard code the types of sessions you could choose from to give more structure
-     *  and give the data analyst more predictability about which types of meetings are scheduled more.
-     * Having this also helps our admin/events team, for example a planning session could require catering, and we could
-     * built on a trigger to the admin in that location to order food. However, a check in meeting might not need catering.
-     </p>
-     */
-
     private static final String[] types = {"Planning Session", "De-Briefing", "Designing Session", "Development Feed Back", "Testing Talks", "Evaluation", "Initial Meeting", "Check In"};
     ObservableList<String> contacts = FXCollections.observableArrayList();
     ObservableList<Integer> customerIDs = FXCollections.observableArrayList();
@@ -116,15 +101,21 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      */
     public boolean startBeforeEnd(LocalDate start, LocalTime startHour , LocalDate end, LocalTime endHour){
 
+        int value = startHour.compareTo(endHour);
+
         if(start.isAfter(end)){
 
             return true;
         }
 
-        if(endHour.isBefore(startHour)){
+        if(value > 0){
 
             return true;
         }
+
+       if( value == 0){
+           return true;
+       }
 
         return false;
     }
@@ -359,11 +350,8 @@ public class AddAppointmentController extends MainMenu implements Initializable 
 
             if (customer == id) {
 
-
                 LocalDateTime appointStart = appointment.getStart();
                 LocalDateTime appointEnd = appointment.getEnd();
-
-
 
 
                 if ((appointStart.isAfter(start) || appointStart.isEqual(start)) && appointStart.isBefore(end)) {
@@ -379,7 +367,6 @@ public class AddAppointmentController extends MainMenu implements Initializable 
                 else if ((appointStart.isBefore(start) || appointStart.isEqual(start)) && (appointEnd.isAfter(end) || appointEnd.isEqual(end))) {
 
                     return true;
-
 
                 }
             }
@@ -400,8 +387,7 @@ public class AddAppointmentController extends MainMenu implements Initializable 
      */
 
     public void saveAppointment(ActionEvent event) throws Exception {
-       // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-      //  Long offsetToUTC = Long.valueOf((ZonedDateTime.now().getOffset()).getTotalSeconds());
+
         try {
             String title = addAppointmentTitle.getText();
             String description = addAppointmentDescription.getText();
@@ -410,7 +396,7 @@ public class AddAppointmentController extends MainMenu implements Initializable 
             LocalDateTime createDate = LocalDateTime.now();
             String createdBy = loggedInUser;
             LocalDateTime lastUpdate = LocalDateTime.now();
-            String lastUpdatedBy = User.getLoggedUser();
+            String lastUpdatedBy = loggedInUser;
             int customerID = addAppointmentCustomerID.getValue();
             int userID = UsersDAOImpl.getUserId(Login.loggedInUser);
             int contactID = getContactID();
@@ -439,27 +425,8 @@ public class AddAppointmentController extends MainMenu implements Initializable 
             }
 
 
-           // System.out.println(startDate);
-           // System.out.println(startHour);
-
-            //having issues with parsing so I wondered if I could put these two together manually
-           // String date = startDate+"T"+startHour;
-
-
-           // LocalDateTime newStartTest = LocalDateTime.parse(date);
-
             LocalDateTime officialStart = LocalDateTime.of(startDate, startHour);
             LocalDateTime officialEnd = LocalDateTime.of(endDate, endHour);
-
-            //tried to parse
-          //  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd kk:mm:ss.S");
-           // String txtStartTime = (startDate.toString()+ startHour);
-
-            //tried to parse
-           // LocalDateTime ldtStart = LocalDateTime.parse(txtStartTime, df);
-
-
-
 
 
             if (Times.withInBusinessHours(officialStart, AMPMStart.getValue(),AMPMEnd.getValue(), officialEnd)) {
@@ -479,14 +446,6 @@ public class AddAppointmentController extends MainMenu implements Initializable 
                 errorAlert("Your customer has another appointment at this time");
                 return;
             }
-
-            //Caused by: java.time.format.DateTimeParseException: Text '2021-11-1614:00' could not be parsed at index 10
-            //when entered ldt
-           // LocalDateTime ldt = LocalDateTime.of(officialStart.getYear(), officialStart.getMonthValue(), officialStart.getDayOfMonth(), officialStart.getHour(), officialStart.getMinute());
-
-            //last used
-           // LocalDateTime starting = officialStart.minus(Duration.ofSeconds(offsetToUTC));
-
 
 
             AppointmentsDAOImpl.addAppointment(title, description, location,type, officialStart, officialEnd, createDate, createdBy,  lastUpdate, lastUpdatedBy, customerID, userID, contactID);

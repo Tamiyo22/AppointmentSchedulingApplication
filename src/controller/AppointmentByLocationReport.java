@@ -92,6 +92,7 @@ import java.util.ResourceBundle;
 
             locationTable.setItems(Phoenix);
             locationName.setText(" You are viewing appointments in Phoenix, Arizona.");
+            locationName.setStyle("-fx-background-color:  #FBBC05; -fx-text-fill: white;");
         }
 
     /**
@@ -116,7 +117,8 @@ import java.util.ResourceBundle;
 
 
             locationTable.setItems(WhitePlains);
-            locationName.setText(" You are viewing appointments White Plains, New York.");
+            locationName.setText(" You are viewing appointments in White Plains, New York.");
+            locationName.setStyle("-fx-background-color:  #4285F4; -fx-text-fill: white;");
         }
 
     /**
@@ -140,6 +142,7 @@ import java.util.ResourceBundle;
 
             locationTable.setItems(Montreal);
             locationName.setText(" You are viewing appointments in Montreal, Canada");
+            locationName.setStyle("-fx-background-color:  #EA4335; -fx-text-fill: white;");
 
         }
 
@@ -165,6 +168,7 @@ import java.util.ResourceBundle;
 
             locationTable.setItems(London);
             locationName.setText(" You are viewing appointments in London, England");
+            locationName.setStyle("-fx-background-color: #34A853; -fx-text-fill: white;");
         }
 
 
@@ -185,8 +189,8 @@ import java.util.ResourceBundle;
                 appointTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
                 appointDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
                 appointType.setCellValueFactory(new PropertyValueFactory<>("Type"));
-                startTime.setCellValueFactory(new PropertyValueFactory<>("Start"));
-                endTime.setCellValueFactory(new PropertyValueFactory<>("End"));
+                startTime.setCellValueFactory(new PropertyValueFactory<>("ZonedStart"));
+                endTime.setCellValueFactory(new PropertyValueFactory<>("ZonedEnd"));
                 customerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
 
                 appointments.addAll(AppointmentsDAOImpl.getAllAppointments());

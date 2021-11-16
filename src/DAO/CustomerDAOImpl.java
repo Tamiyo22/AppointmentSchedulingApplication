@@ -3,14 +3,14 @@ package DAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Customer;
-import model.Division;
-import model.Times;
+import util.Times;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 
 /**
- * this is a Customer Data Access Object Implementation that has database manipulation methods.
+ * This is a Customer Data Access Object Implementation that has database manipulation methods.
+ *  * @author Melissa Aybar
  */
 public class CustomerDAOImpl {
 
@@ -52,7 +52,6 @@ public class CustomerDAOImpl {
 
            e.printStackTrace();
     }
-        System.out.println(currentCountry);
         return currentCountry;
     }
 
@@ -142,7 +141,7 @@ public class CustomerDAOImpl {
             ps.setString(2,address);
             ps.setString(3,postalCode);
             ps.setString(4,phone);
-            ps.setTimestamp(5,Timestamp.valueOf(Times.convertToUTC(lastUpdate)));
+            ps.setTimestamp(5,Timestamp.valueOf(lastUpdate));
             ps.setString(6,lastUpdateBy);
             ps.setInt(7,divisionID);
 
@@ -205,19 +204,16 @@ public class CustomerDAOImpl {
     public static void addCustomer( String customerName, String address, String postalCode, String phone, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdateBy, int divisionID){
         try{
 
-            String sqlStatement = "INSERT INTO customers VALUES(NULL,?,?,?,?,?,?,?,?,?)";
+            String sqlStatement = "INSERT INTO customers (Customer_Name, Address, Postal_Code, Phone, Create_Date, Created_By,Last_Update,Last_Updated_By, Division_ID ) VALUES(?,?,?,?,now(),?,now(),?,?)";
             PreparedStatement ps = JDBC.getConnection().prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
 
-            //ps.setInt(1,customerID);
             ps.setString(1,customerName);
             ps.setString(2,address);
             ps.setString(3,postalCode);
             ps.setString(4,phone);
-            ps.setTimestamp(5, Timestamp.valueOf(Times.convertToUTC(createDate)));
-            ps.setString(6,createdBy);
-            ps.setTimestamp(7,Timestamp.valueOf(Times.convertToUTC(lastUpdate)));
-            ps.setString(8,lastUpdateBy);
-            ps.setInt(9,divisionID);
+            ps.setString(5,createdBy);
+            ps.setString(6,lastUpdateBy);
+            ps.setInt(7,divisionID);
 
             ps.execute();
 

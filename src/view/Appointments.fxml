@@ -9,18 +9,18 @@
 
 <AnchorPane prefHeight="742.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppointmentsController">
    <children>
-      <TableView fx:id="appointmentTable" layoutX="188.0" layoutY="321.0" prefHeight="393.0" prefWidth="933.0" style="-fx-border-color: #3A3B3C;">
+      <TableView fx:id="appointmentTable" layoutX="149.0" layoutY="329.0" prefHeight="386.0" prefWidth="1015.0" style="-fx-border-color: #3A3B3C;">
         <columns>
-          <TableColumn fx:id="appointID" prefWidth="52.0" text="ID" />
-          <TableColumn fx:id="appointTitle" prefWidth="104.0" text="Title" />
+          <TableColumn fx:id="appointID" prefWidth="47.20001220703125" text="ID" />
+          <TableColumn fx:id="appointTitle" prefWidth="108.79998779296875" text="Title" />
             <TableColumn fx:id="appointDescription" prefWidth="132.0" text="Description" />
             <TableColumn fx:id="location" prefWidth="116.0" text="Location" />
-            <TableColumn fx:id="contactID" prefWidth="69.0" text="Contact ID" />
-            <TableColumn fx:id="appointType" prefWidth="134.0" text="Type" />
-            <TableColumn fx:id="startTime" prefWidth="113.0" text="Start" />
-            <TableColumn fx:id="endTime" prefWidth="121.0" text="End" />
-            <TableColumn fx:id="customerID" prefWidth="85.0" text="Customer ID" />
-            <TableColumn fx:id="userID" prefWidth="69.0" text="User ID" />
+            <TableColumn fx:id="contactID" prefWidth="65.5999755859375" text="Contact ID" />
+            <TableColumn fx:id="appointType" prefWidth="109.60003662109375" text="Type" />
+            <TableColumn fx:id="startTime" prefWidth="144.79998779296875" text="Start" />
+            <TableColumn fx:id="endTime" prefWidth="144.00006103515625" text="End" />
+            <TableColumn fx:id="customerID" prefWidth="76.0" text="Customer ID" />
+            <TableColumn fx:id="userID" prefWidth="68.800048828125" text="User ID" />
         </columns>
       </TableView>
       <Label graphicTextGap="20.0" layoutX="306.0" layoutY="128.0" prefHeight="38.0" prefWidth="300.0" style="-fx-text-fill: #4285F4;" text="Appointments">
@@ -52,5 +52,10 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Label fx:id="appointmentLabel" layoutX="168.0" layoutY="283.0" prefHeight="35.0" prefWidth="610.0" text="All Appointments">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

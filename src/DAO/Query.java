@@ -7,6 +7,7 @@ import static DAO.JDBC.connection;
 
 /**
  *This class is a helper class that helps make efficient database SQL commands by executing queries, updating them.
+ * @author Melissa Aybar
  */
 
 public class Query {

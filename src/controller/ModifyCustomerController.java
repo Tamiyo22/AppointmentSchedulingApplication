@@ -67,7 +67,7 @@ Customer person;
      * The method sets up the current customers location.
      * This method takes the customer that we are modifying and sets up their current location and their areas.
      * @param person customer
-     * @throws Exception
+     * @throws Exception error
      */
     public void setLocation(Customer person) throws Exception {
         String currentCountry = addCustomerCountry.getValue();
@@ -160,6 +160,7 @@ Customer person;
       CustomerDAOImpl.updateCustomer(customerID, customerName, address, postalCode, phone, lastUpdate, lastUpdateBy, divisionID);
   }catch (NullPointerException e){
       errorAlert("Please make sure all the fields are filled.");
+      return;
   }
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Updated Customer");
@@ -174,7 +175,6 @@ Customer person;
         Scene scene = new Scene(parent, 1200, 1000);
         stage.setTitle("Customers");
         stage.setScene(scene);
-        CustomersController controller = loader.getController();
         stage.show();
 
     } catch (IOException error) {

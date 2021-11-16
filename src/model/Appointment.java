@@ -1,6 +1,9 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * The model class for all appointments.
@@ -25,25 +28,29 @@ public class Appointment {
     private int contactID;
 
 
-
     public Appointment(){};
     /**
      this constructor is used for setting the main table on the appointments form
+
      @param title appointment title
       * @param description appointment description
      * @param location appointment location
      * @param type appointment type
+     * @param start appointment start time
+     * @param end appointment end time
      * @param customerID appointment customer id
      * @param userID appointment userID
      * @param contactID appointment contact id
      */
 
-    public Appointment(int appointmentID, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, int customerID, int userID, int contactID) {
+    public Appointment(int appointmentID, String title, String description, String location, String type, LocalDateTime  start, LocalDateTime end, int customerID, int userID, int contactID) {
         this.appointmentID = appointmentID;
         this.title = title;
         this.description = description;
         this.location = location;
         this.type = type;
+        this.start = start;
+        this.end = end;
         this.customerID = customerID;
         this.userID = userID;
         this.contactID = contactID;
@@ -55,6 +62,8 @@ public class Appointment {
      * @param description description
      * @param location location
      * @param type type
+     * @param start start
+     * @param end end
      * @param createDate createDate
      * @param createdBy createdBy
      * @param lastUpdate lastUpdate
@@ -64,11 +73,13 @@ public class Appointment {
      * @param contactID contactID
      */
 
-    public Appointment( String title, String description, String location, String type, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, LocalDateTime lastUpdatedBy, int customerID, int userID, int contactID) {
+    public Appointment( String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, LocalDateTime lastUpdatedBy, int customerID, int userID, int contactID) {
         this.title = title;
         this.description = description;
         this.location = location;
         this.type = type;
+        this.start = start;
+        this.end = end;
         this.createDate = createDate;
         this.createdBy = createdBy;
         this.lastUpdate = lastUpdate;
@@ -86,6 +97,8 @@ public class Appointment {
      * @param description appointment description
      * @param location appointment location
      * @param type appointment type
+     * @param start appointment type
+     * @param end appointment end
      * @param createDate appointment create date
      * @param createdBy appointment created by
      * @param lastUpdate appointment last update
@@ -94,12 +107,14 @@ public class Appointment {
      * @param userID appointment user id
      * @param contactID appointment contact id
      */
-    public Appointment(int appointmentID, String title, String description, String location, String type, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, LocalDateTime lastUpdatedBy, int customerID, int userID, int contactID) {
+    public Appointment(int appointmentID, String title, String description, String location, String type, LocalDateTime  start, LocalDateTime end, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, LocalDateTime lastUpdatedBy, int customerID, int userID, int contactID) {
         this.appointmentID = appointmentID;
         this.title = title;
         this.description = description;
         this.location = location;
         this.type = type;
+        this.start = start;
+        this.end = end;
         this.createDate = createDate;
         this.createdBy = createdBy;
         this.lastUpdate = lastUpdate;
@@ -117,14 +132,18 @@ public class Appointment {
      * @param title appointment title
      * @param description appointment description
      * @param type appointment type
+     * @param start appointment start time
+     * @param end appointment end time
      * @param customerID appointment  customer id
      */
 
-    public Appointment(int appointmentID, String title,String description, String type, int customerID) {
+    public Appointment(int appointmentID, String title,String description, String type, LocalDateTime start, LocalDateTime end, int customerID) {
         this.appointmentID = appointmentID;
         this.title = title;
         this.description = description;
         this.type = type;
+        this.start = start;
+        this.end = end;
         this.customerID = customerID;
 
     }
@@ -136,7 +155,7 @@ public class Appointment {
      * @return the appointmentID.
      */
     public int getAppointmentID() {
-        return this.appointmentID;
+        return appointmentID;
     }
 
     /**
@@ -154,7 +173,7 @@ public class Appointment {
      * @return the title.
      */
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     /**
@@ -173,7 +192,7 @@ public class Appointment {
      * @return Description.
      */
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
 
@@ -212,7 +231,7 @@ public class Appointment {
      * @return Type.
      */
     public String getType() {
-        return this.type;
+        return type;
     }
 
     /**
@@ -230,7 +249,7 @@ public class Appointment {
      * @return start time.
      */
     public LocalDateTime getStart() {
-        return this.start;
+        return start;
     }
 
     /**
@@ -248,7 +267,7 @@ public class Appointment {
      * @return end time.
      */
     public LocalDateTime getEnd() {
-        return this.end;
+        return end;
     }
 
     /**
@@ -331,7 +350,7 @@ public class Appointment {
      * @return CustomerID.
      */
     public int getCustomerID() {
-        return this.customerID;
+        return customerID;
     }
     /**
      * The method takes in the customerID and sets it.
@@ -346,7 +365,6 @@ public class Appointment {
      * The method returns the appointment UserID.
      * This method accesses the appointment UserID and returns it.
      * @return UserID.
-
      */
     public int getUserID() {
         return userID;
@@ -366,7 +384,7 @@ public class Appointment {
      * @return ContactID.
      */
     public int getContactID() {
-        return this.contactID;
+        return contactID;
     }
     /**
      * The method takes in the contactID and sets it.
@@ -376,6 +394,24 @@ public class Appointment {
     public void setContactID(int contactID) {
         this.contactID = contactID;
     }
+
+    public String getZonedStart(){
+        String formattedString = "";
+        DateTimeFormatter timeZoneName = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm z");
+        ZonedDateTime zonedStart = start.atZone(ZoneId.systemDefault());
+        formattedString = timeZoneName.format(zonedStart);
+
+        return formattedString;
+    }
+
+    public String getZonedEnd(){
+        String formattedString = "";
+        DateTimeFormatter timeZoneName = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm z");
+        ZonedDateTime zonedEnd = end.atZone(ZoneId.systemDefault());
+        formattedString = timeZoneName.format(zonedEnd);
+        return formattedString;
+    }
+
 
 
 

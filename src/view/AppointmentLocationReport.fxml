@@ -9,15 +9,15 @@
 
 <AnchorPane prefHeight="783.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppointmentByLocationReport">
    <children>
-      <TableView fx:id="locationTable" layoutX="205.0" layoutY="347.0" prefHeight="446.0" prefWidth="938.0" style="-fx-border-color: #3A3B3C;">
+      <TableView fx:id="locationTable" layoutX="189.0" layoutY="347.0" prefHeight="446.0" prefWidth="954.0" style="-fx-border-color: #3A3B3C;">
         <columns>
-          <TableColumn fx:id="appointID" prefWidth="106.40000915527344" text="Appointment ID" />
-          <TableColumn fx:id="appointTitle" prefWidth="177.60000610351562" text="Title" />
-            <TableColumn fx:id="appointType" prefWidth="129.60003662109375" text="Type" />
-            <TableColumn fx:id="startTime" prefWidth="117.5999755859375" text="Start" />
-            <TableColumn fx:id="endTime" prefWidth="124.800048828125" text="End" />
-            <TableColumn fx:id="customerID" prefWidth="82.40008544921875" text="Customer Id" />
-            <TableColumn fx:id="appointDescription" prefWidth="197.59991455078125" text="Description" />
+          <TableColumn fx:id="appointID" prefWidth="99.20004272460938" text="Appointment ID" />
+          <TableColumn fx:id="appointTitle" prefWidth="148.79995727539062" text="Title" />
+            <TableColumn fx:id="appointType" prefWidth="123.20001220703125" text="Type" />
+            <TableColumn fx:id="startTime" prefWidth="152.0" text="Start" />
+            <TableColumn fx:id="endTime" prefWidth="144.79998779296875" text="End" />
+            <TableColumn fx:id="customerID" prefWidth="94.39996337890625" text="Customer Id" />
+            <TableColumn fx:id="appointDescription" prefWidth="192.8001708984375" text="Description" />
         </columns>
       </TableView>
       <Label graphicTextGap="20.0" layoutX="206.0" layoutY="128.0" prefHeight="56.0" prefWidth="602.0" style="-fx-text-fill: #34A853;" text=" Appointment Location Reports">
@@ -47,7 +47,10 @@
          </children>
       </AnchorPane>
       <Button fx:id="MontrealButton" layoutX="789.0" layoutY="261.0" mnemonicParsing="false" onAction="#loadMontrealTable" prefHeight="42.0" prefWidth="142.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="Montreal, Canada" />
-      <Label fx:id="locationName" layoutX="249.0" layoutY="298.0" prefHeight="30.0" prefWidth="370.0" text="Label" />
+      <Label fx:id="locationName" layoutX="196.0" layoutY="291.0" prefHeight="42.0" prefWidth="572.0" text="All Locations">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Button fx:id="LondonButton" layoutX="980.0" layoutY="261.0" mnemonicParsing="false" onAction="#loadLondonTable" prefHeight="42.0" prefWidth="142.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="London, England" />
    </children>
 </AnchorPane>

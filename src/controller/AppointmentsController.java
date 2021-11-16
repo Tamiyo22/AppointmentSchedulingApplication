@@ -107,6 +107,9 @@ public class AppointmentsController extends MainMenu implements Initializable {
     @FXML
     private Button monthly;
 
+    @FXML
+    private Label appointmentLabel;
+
     ObservableList<Appointment> appointments = FXCollections.observableArrayList();
     ObservableList<Appointment> weeklyAppointmentList = FXCollections.observableArrayList();
     ObservableList<Appointment> monthlyAppointmentList = FXCollections.observableArrayList();
@@ -141,6 +144,9 @@ public class AppointmentsController extends MainMenu implements Initializable {
         appointments.clear();
         appointmentTable.setItems(appointments);
         appointmentTable.setItems(weeklyAppointmentList);
+        appointmentLabel.setText(" You are viewing appointments for the upcoming week.");
+        appointmentLabel.setStyle("-fx-background-color:  #FBBC05; -fx-text-fill: white;");
+
 
     }
 
@@ -174,6 +180,8 @@ public class AppointmentsController extends MainMenu implements Initializable {
         appointments.clear();
         appointmentTable.setItems(appointments);
         appointmentTable.setItems(monthlyAppointmentList);
+        appointmentLabel.setText(" You are viewing appointments for the upcoming month.");
+        appointmentLabel.setStyle("-fx-background-color:  #34A853; -fx-text-fill: white;");
 
     }
 
@@ -196,7 +204,6 @@ public class AppointmentsController extends MainMenu implements Initializable {
 
                 Appointment appointmentToModify = AppointmentsDAOImpl.getAppointment(meeting.getAppointmentID());
 
-
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/ModifyAppointment.fxml"));
                 Parent parent = loader.load();
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -207,8 +214,6 @@ public class AppointmentsController extends MainMenu implements Initializable {
                 controller.setAppointment(appointmentToModify);
 
                 stage.show();
-
-
 
             } catch (IOException e) {
                 errorAlerts("There is an issue with this event.");
@@ -263,8 +268,8 @@ public class AppointmentsController extends MainMenu implements Initializable {
             location.setCellValueFactory(new PropertyValueFactory<>("Location"));
             contactID.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
             appointType.setCellValueFactory(new PropertyValueFactory<>("Type"));
-            startTime.setCellValueFactory(new PropertyValueFactory<>("Start"));
-            endTime.setCellValueFactory(new PropertyValueFactory<>("End"));
+            startTime.setCellValueFactory(new PropertyValueFactory<>("ZonedStart"));
+            endTime.setCellValueFactory(new PropertyValueFactory<>("ZonedEnd"));
             customerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
             userID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
 
@@ -277,8 +282,6 @@ public class AppointmentsController extends MainMenu implements Initializable {
         }
 
         appointmentTable.setItems(appointments);
-
-
     }
 
 

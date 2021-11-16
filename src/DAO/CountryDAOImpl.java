@@ -9,8 +9,7 @@ import java.sql.SQLException;
 
 /**
  * This is the Country Data Access Object Implementation that has database manipulation methods.
- * The Country Data Access Object or Country DAO allows us to have data operations without exposing the
- * details of the database. The data operations here assist with our country data.
+ * @author Melissa Aybar
  */
 public class CountryDAOImpl {
 

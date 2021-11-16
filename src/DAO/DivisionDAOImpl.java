@@ -8,8 +8,7 @@ import java.sql.SQLException;
 
 /**
  * This is the Division Data Access Object Implementation that has database manipulation methods.
- * The Division Data Access Object or Division DAO allows us to have data operations without exposing the
- * details of the database. The data operations here assist with our Division data.
+ * @author Melissa Aybar
  */
 
 public class DivisionDAOImpl {

@@ -9,8 +9,7 @@ import java.sql.*;
 
 /**
  * This is the User Data Access Object Implementation that has database manipulation methods.
- * The User Data Access Object or Appointment DAO allows us to have data operations without exposing the
- * details of the database. The data operations here assist with our user data.
+ * @author Melissa Aybar
  */
 public class UsersDAOImpl {
 

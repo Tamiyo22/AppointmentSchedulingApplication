@@ -66,37 +66,37 @@ public class MainMenu extends Login implements Initializable {
      * if the start time falls roughly around 15 minutes, then the user will get an alert when they log in.
      * </p>
      */
-    /*
+
       public static void appointmentAlert(){
         boolean found = false;
         for(Appointment appointment : AppointmentsDAOImpl.getAllAppointments()){
-            // start = appointment.getStart();
-            //LocalTime appStart= LocalTime.of(start.getHour(),start.getMinute());
-
+            LocalDateTime start = appointment.getStart();
+            LocalTime appStart= LocalTime.of(start.getHour(),start.getMinute());
             LocalTime nowTime= LocalTime.now();
-           // long timeDifference = ChronoUnit.MINUTES.between(nowTime,appStart);
+            long timeDifference = ChronoUnit.MINUTES.between(nowTime,appStart);
 
             if(timeDifference  <= 15  && timeDifference  > 0){
 
                 found = true;
+
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("You have a appointment in the next 15 minutes.");
-                alert.show();
+                alert.setTitle("Appointment Id "+ appointment.getAppointmentID() );
+                alert.setContentText( "Appointment ID "+ appointment.getAppointmentID()+" starts in 15 minutes or less on "+ appointment.getStart().toLocalDate() +
+                        " at time "+  appointment.getStart().toLocalTime());
+                alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+                alert.showAndWait();
 
                 break;
             }
         }
 
-        if(found != true) {
+        if(!found) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("You have no appointments in the next 15 minutes.");
             alert.show();
         }
 
         }
-
-
-*/
 
 
     /**
@@ -291,6 +291,7 @@ public class MainMenu extends Login implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
         displayName();
+
     }
 
 

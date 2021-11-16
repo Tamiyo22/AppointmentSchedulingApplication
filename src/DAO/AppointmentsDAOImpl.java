@@ -3,12 +3,9 @@ package DAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Appointment;
-import model.Times;
-import util.TimeManger;
 
 import java.sql.*;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -29,7 +26,7 @@ public class AppointmentsDAOImpl {
         try {
             String sqlStatement = "SELECT * FROM appointments";
             Query.makeQuery(sqlStatement);
-            Appointment appointmentResult;
+            //Appointment appointmentResult;
             ResultSet result = Query.getResult();
 
 
@@ -93,30 +90,11 @@ public class AppointmentsDAOImpl {
 
             String sqlStatement = "INSERT INTO appointments (Title, Description, Location, Type, Start, End, Create_Date, Created_By, Last_Update, Last_Updated_By, Customer_Id, User_ID, Contact_ID) VALUES(?,?,?,?,?,?,now(),?,now(),?,?,?,?)";
             PreparedStatement ps = JDBC.getConnection().prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
-/*
-            //entered testing for start
-            System.out.println("this is the start we are getting to insert "+ start);
-            ZoneId local = ZoneId.systemDefault();
-            ZoneId utc = ZoneId.of("UTC");
-            ZonedDateTime zdt = ZonedDateTime.of(start, local);
-            System.out.println("This is zdt  "+ zdt);
-
-            LocalDateTime startTest = TimeManger.changeTimeZone(zdt,utc).toLocalDateTime();
-            System.out.println("this is the start test "+ startTest);
-            String startStr = startTest.toString().replace("T"," ");
-            System.out.println("this is startStr "+ startStr);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-            LocalDateTime ldtStart = LocalDateTime.parse(startStr, formatter);
-            System.out.println("this is ldtStart "+ ldtStart);
-
-            System.out.println("this is the time stamped value "+ Timestamp.valueOf(ldtStart));
-*/
 
             ps.setString(1,title);
             ps.setString(2,description);
             ps.setString(3,location);
             ps.setString(4,type);
-           // ps.setTimestamp(5,Timestamp.valueOf(ldtStart));
             ps.setTimestamp(5,Timestamp.valueOf(start));
             ps.setTimestamp(6,Timestamp.valueOf(end));
             ps.setString(7,createdBy);
@@ -220,9 +198,9 @@ public class AppointmentsDAOImpl {
             ps.setString(2,description);
             ps.setString(3,location);
             ps.setString(4,type);
-            ps.setTimestamp(5,Timestamp.valueOf(Times.convertToUTC(officialStart)));
-            ps.setTimestamp(6,Timestamp.valueOf(Times.convertToUTC(officialEnd)));
-            ps.setTimestamp(7,Timestamp.valueOf(Times.convertToUTC(lastUpdate)));
+            ps.setTimestamp(5,Timestamp.valueOf(officialStart));
+            ps.setTimestamp(6,Timestamp.valueOf(officialEnd));
+            ps.setTimestamp(7,Timestamp.valueOf(lastUpdate));
             ps.setString(8,lastUpdatedBy);
             ps.setInt(9,customerID);
             ps.setInt(10,userID);

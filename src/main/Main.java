@@ -1,6 +1,6 @@
 package main;
 /**
- * @Author Melissa Aybar
+ * @author Melissa Aybar
  * c195 Software 2
  */
 
@@ -11,9 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import util.TimeManger;
-
-import java.time.*;
 
 /**
  * The class holds methods that start the program.
@@ -46,6 +43,8 @@ public class Main extends Application {
      */
 
     public static void main(String[] args) {
+
+        /*
         ZoneId local = ZoneId.systemDefault();
         LocalDate ld = LocalDate.now();
         LocalTime lt = LocalTime.of(14,00);
@@ -65,7 +64,7 @@ public class Main extends Application {
 
         System.out.println(TimeManger.changeTimeZone(zdtStart,local));
 
-
+*/
 
 
         JDBC.openConnection();

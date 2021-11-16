@@ -3,10 +3,12 @@ package controller;
 import DAO.AppointmentsDAOImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,22 +17,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Appointment;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * This class has the methods for the Appointment by Locations report.
- * <p>
- * The AppointmentByLocationReport extends the AppointmentsController class and implements the Initializable inerface.
- * By inheriting from the  AppointmentsController the user can navigate to other stages as they could with the MainMenu, and have
- * access to all of the AppointmentsController methods.The ContactAppointReportController class sets the elements needed for the user to
- * view the appointment data from the contacts on click of their buttons.
- * </p>
+ * This class has the methods for interacting with  the Appointment by Locations report.
+ * @author Melissa Aybar
+ *
  */
 
 public class ContactAppointReportController extends AppointmentsController implements Initializable {
-
 
 
     @FXML
@@ -61,79 +60,64 @@ public class ContactAppointReportController extends AppointmentsController imple
     @FXML
     private TableColumn<Appointment, LocalDateTime> startTime;
 
-
-
-
+    @FXML
+    private ChoiceBox<String> addContactChoice;
 
 
     ObservableList<Appointment> appointments = FXCollections.observableArrayList();
+    HashMap<String, Integer> contactStorage = new HashMap<>();
+    List<String> contactNames = Arrays.asList("Anika Costa", "Daniel Garcia", "Li Lee");
 
-    ObservableList<Appointment> AnikaCosta = FXCollections.observableArrayList();
-    ObservableList<Appointment> DanielGarcia = FXCollections.observableArrayList();
-    ObservableList<Appointment> LiLee = FXCollections.observableArrayList();
 
     /**
-     * The method adds appointments with the contact Anika Costa to the table to view.
-     * <p>
-     * This method calls the getAllAppointments() method from the Appointment Data Access Object, which
-     * loads all of the appointments. Then we select the ones that have the contact id of 1, which is Anika Costa's id
-     * and set it to the table.
-     * </p>
-     * @param event
+     * This takes all of the contacts and adds them into the ComboBox and the storage HashMap.
      */
-    public void loadAnikaCostaTable(ActionEvent event) throws SQLException {
-
-            for(Appointment appointment : AppointmentsDAOImpl.getAllAppointments()){
-                if(appointment.getContactID() == 1){
-                    AnikaCosta.add(appointment);
-                }
-            }
-        contactTable.setItems(AnikaCosta);
-        contactName.setText(" You are viewing Anika Costa's appointments.");
-
+    public void loadContacts() {
+        addContactChoice.getItems().addAll(contactNames);
+        contactStorage.put("Anika Costa", 1);
+        contactStorage.put("Daniel Garcia", 2);
+        contactStorage.put("Li Lee", 3);
     }
 
     /**
-     * The method adds appointments with the contact Daniel Garcia to the table to view.
-     * <p>
-     * This method calls the getAllAppointments() method from the Appointment Data Access Object, which
-     * loads all of the appointments. Then we select the ones that have the contact id of 2, which is Daniel Garcia's id
-     * and set it to the table.
-     * </p>
-     * @param event
+     * This method takes the selected contact and adds them as an argument to the setContact method.
+     * @param event on click.
      */
-    public void loadDanielGarciaTable(ActionEvent event) throws SQLException {
+    public void selectContact(ActionEvent event) { setContact(addContactChoice.getValue());}
 
-        for(Appointment appointment : AppointmentsDAOImpl.getAllAppointments()){
-            if(appointment.getContactID() == 2){
-                DanielGarcia.add(appointment);
-            }
+
+    /**
+     * This method takes a contact name and gets its key value from the Hashmap and loads it as an argument.
+     * @param name of the contact.
+     */
+    public void setContact(String name){
+            int contactIdChoice = contactStorage.get(name);
+            loadPersonalTable(contactIdChoice);
+    }
+
+    /**
+     * This method gets all of the appointments with the provided contact id and loads them onto the contact table.
+     * @param num The contact id
+     */
+    public void loadPersonalTable(int num) {
+
+        FilteredList<Appointment> contactAppointment = new FilteredList<>(AppointmentsDAOImpl.getAllAppointments(), appointment -> appointment.getContactID() == num);
+
+        contactTable.setItems(contactAppointment);
+        contactName.setText("You are viewing " + contactNames.get(num - 1) + "'s" + " Appointments.");
+        String name = contactNames.get(num - 1);
+        switch (name) {
+            case "Anika Costa":
+                contactName.setStyle("-fx-background-color: #EA4335; -fx-text-fill: white;");
+                break;
+            case "Daniel Garcia":
+                contactName.setStyle("-fx-background-color: #34A853; -fx-text-fill: white;");
+                break;
+            case "Li Lee":
+                contactName.setStyle("-fx-background-color: #4285F4; -fx-text-fill: white;");
+                break;
         }
-
-        contactTable.setItems(DanielGarcia);
-        contactName.setText(" You are viewing Daniel Garcia's appointments.");
     }
-
-    /**
-     * The method adds appointments with the contact Li Lee to the table to view.
-     * <p>
-     * This method calls the getAllAppointments() method from the Appointment Data Access Object, which
-     * loads all of the appointments. Then we select the ones that have the contact id of 2, which is Li Lee's id
-     * and set it to the table.
-     * </p>
-     * @param event
-     */
-    public void loadLiLeeTable(ActionEvent event) throws SQLException {
-
-        for(Appointment appointment : AppointmentsDAOImpl.getAllAppointments()){
-            if(appointment.getContactID() == 3){
-                LiLee.add(appointment);
-            }
-        }
-        contactTable.setItems(LiLee);
-        contactName.setText(" You are viewing Li Lee's appointments.");
-    }
-
 
     /**
      * The method sets up the table for the user to view.
@@ -143,14 +127,15 @@ public class ContactAppointReportController extends AppointmentsController imple
      * to them once the stage is loaded.
      * </p>
      */
+
     public void loadContactsTable() {
      try {
          appointID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
          appointTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
          appointDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
          appointType.setCellValueFactory(new PropertyValueFactory<>("Type"));
-         startTime.setCellValueFactory(new PropertyValueFactory<>("Start"));
-         endTime.setCellValueFactory(new PropertyValueFactory<>("End"));
+         startTime.setCellValueFactory(new PropertyValueFactory<>("ZonedStart"));
+         endTime.setCellValueFactory(new PropertyValueFactory<>("ZonedEnd"));
          customerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
 
          appointments.addAll(AppointmentsDAOImpl.getAllAppointments());
@@ -164,10 +149,6 @@ public class ContactAppointReportController extends AppointmentsController imple
 
     /**
      * The method initializes the methods for set up.
-     * <p>
-     *  This method sets up the information needed for the user to view the location reports using the interface Initializable
-     *  which helps call the methods after the controller has been initialized after the root element has processed.
-     * </p>
      * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
      * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
      */
@@ -176,6 +157,10 @@ public class ContactAppointReportController extends AppointmentsController imple
 
         loadContactsTable();
         displayName();
+        loadContacts();
+
+        addContactChoice.setOnAction(this::selectContact);
+
 
     }
 

@@ -165,6 +165,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 1);
 
         typeName.setText(" You are viewing appointment types in January");
+        typeName.setStyle("-fx-background-color:  #4285F4; -fx-text-fill: white;");
 
     }
 
@@ -183,6 +184,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 2);
 
         typeName.setText(" You are viewing appointment types in February");
+        typeName.setStyle("-fx-background-color:  #EA4335; -fx-text-fill: white;");
     }
 
     /**
@@ -200,6 +202,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 3);
 
         typeName.setText(" You are viewing appointment types in March");
+        typeName.setStyle("-fx-background-color: #34A853; -fx-text-fill: white;");
     }
 
     /**
@@ -216,6 +219,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 3);
 
         typeName.setText(" You are viewing appointment types in April");
+        typeName.setStyle("-fx-background-color:  #FBBC05; -fx-text-fill: white;");
     }
 
     /**
@@ -233,6 +237,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 5);
 
         typeName.setText(" You are viewing appointment types in May");
+        typeName.setStyle("-fx-background-color: #34A853; -fx-text-fill: white;");
     }
 
     /**
@@ -250,6 +255,8 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 6);
 
         typeName.setText(" You are viewing appointment types in June");
+        typeName.setStyle("-fx-background-color:  #FBBC05; -fx-text-fill: white;");
+
     }
 
     /**
@@ -267,6 +274,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 7);
 
         typeName.setText(" You are viewing appointment types in July");
+        typeName.setStyle("-fx-background-color:  #EA4335; -fx-text-fill: white;");
     }
 
     /**
@@ -284,6 +292,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable(8);
 
         typeName.setText(" You are viewing appointment types in August");
+        typeName.setStyle("-fx-background-color:  #4285F4; -fx-text-fill: white;");
 
     }
 
@@ -302,6 +311,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 9);
 
         typeName.setText(" You are viewing appointment types in September");
+        typeName.setStyle("-fx-background-color:  #4285F4; -fx-text-fill: white;");
     }
 
     /**
@@ -319,6 +329,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 10);
 
         typeName.setText(" You are viewing appointment types in October");
+        typeName.setStyle("-fx-background-color: #34A853; -fx-text-fill: white;");
     }
 
     /**
@@ -336,6 +347,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 11);
 
         typeName.setText(" You are viewing appointment types in November");
+        typeName.setStyle("-fx-background-color:  #FBBC05; -fx-text-fill: white;");
 
     }
 
@@ -354,6 +366,7 @@ public void loadMonthTable(int monthNum){
         loadMonthTable( 12);
 
         typeName.setText(" You are viewing appointment types in December");
+        typeName.setStyle("-fx-background-color:  #EA4335; -fx-text-fill: white;");
     }
 
     /**

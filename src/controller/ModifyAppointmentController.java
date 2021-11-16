@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Appointment;
-import model.Times;
+import util.Times;
 
 
 import java.net.URL;
@@ -161,6 +161,7 @@ public class ModifyAppointmentController extends AddAppointmentController implem
             addAppointmentLocation.setValue(location);
             addUserID.setText(userId);
             addAppointmentContact.setValue(contact);
+            System.out.println("line 164 "+meeting.getStart().toLocalDate());
             addStartDate.setValue(meeting.getStart().toLocalDate());
             addEndDate.setValue(meeting.getEnd().toLocalDate());
             addStartHour.setValue(meeting.getStart().toLocalTime());
@@ -169,8 +170,8 @@ public class ModifyAppointmentController extends AddAppointmentController implem
             AMPMEnd.setValue("PM");
 
 
-            LocalTime start = Times.convertToLocalTime(meeting.getStart());
-            LocalTime end = Times.convertToLocalTime(meeting.getEnd());
+            LocalTime start = meeting.getStart().toLocalTime();
+            LocalTime end = meeting.getEnd().toLocalTime();
 
 
 
@@ -213,7 +214,6 @@ public class ModifyAppointmentController extends AddAppointmentController implem
         try {
 
             int appointmentID = Integer.parseInt(addAppointmentID.getText());
-            System.out.println(appointmentID);
             String title = addAppointmentTitle.getText();
             String description = addAppointmentDescription.getText();
             String location = addAppointmentLocation.getValue();
@@ -235,6 +235,8 @@ public class ModifyAppointmentController extends AddAppointmentController implem
                 errorAlert("Please select a date in the future.");
                 return;
             }
+
+
 
             if (AMPMStart.getValue().equals("PM") && startHour.getHour() != 12) {
                 startHour = startHour.plusHours(12);
@@ -267,6 +269,7 @@ public class ModifyAppointmentController extends AddAppointmentController implem
             AppointmentsDAOImpl.updateAppointment(appointmentID, title, description, location, type, officialStart, officialEnd, lastUpdate, lastUpdatedBy, customerID, userID, contactID);
         }catch (NullPointerException e){
             errorAlert("Please make sure all fields are filled out!");
+            return;
         }
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
