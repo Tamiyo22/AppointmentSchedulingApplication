@@ -40,7 +40,8 @@ each pair, and create Appointment type objects. I choose the lambda expression f
 ![image](https://user-images.githubusercontent.com/30645979/142277779-f85bbd78-097d-42e2-a324-07ee2b8ba5e5.png)
 
 **In all time zones. world wide.**
-**EST Example **
+
+**EST Example**
 ![image](https://user-images.githubusercontent.com/30645979/142281734-556dafd4-6900-4f8a-b4a0-b86a122f6b59.png)
 
 **HST Example**
@@ -72,18 +73,19 @@ each pair, and create Appointment type objects. I choose the lambda expression f
 **Appointment Type By Month Report**
 ![image](https://user-images.githubusercontent.com/30645979/142281118-21556cd5-6d6b-4ad6-be57-d0c31b39d33b.png)
 
-((Customers**
+**Customers**
 ![image](https://user-images.githubusercontent.com/30645979/142285399-299b68d5-8ae5-4056-a62a-e000a0f9627b.png)
 
 **Exception Handling when removing a customer**
 ![image](https://user-images.githubusercontent.com/30645979/142285485-c41b6106-6b8e-4182-a2cd-076a9c73b708.png)
 
-
+**Database**
 
 **ERD**
 ![image](https://user-images.githubusercontent.com/30645979/140667700-9d4419ef-a1fc-4bed-8992-fba7585ec16d.png)
 
-**Database Times in UTC**
+
+**Used MySQL workbench. All times were converted to UTC**
 ![image](https://user-images.githubusercontent.com/30645979/142285048-4074db1a-7157-4a23-856f-70518194dba3.png)
 
 
