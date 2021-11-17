@@ -22,28 +22,41 @@ each pair, and create Appointment type objects. I choose the lambda expression f
 
 
 Log in Screen
-![image](https://user-images.githubusercontent.com/30645979/140667347-a04c3e62-46ec-47d1-af34-b157e4047cca.png)
+![image](https://user-images.githubusercontent.com/30645979/142281468-bffee522-3ad0-473f-9f83-b61f2feba53a.png)
 
-![image](https://user-images.githubusercontent.com/30645979/140667383-ba55a1cb-feb5-4d3d-94b4-004c2ca7eade.png)
+Appointments
+![image](https://user-images.githubusercontent.com/30645979/142277779-f85bbd78-097d-42e2-a324-07ee2b8ba5e5.png)
 
-![image](https://user-images.githubusercontent.com/30645979/140667402-ed7628c4-c32d-43df-ba5d-ff7a676d8af6.png)
+In all time zones. world wide.
+EST
+![image](https://user-images.githubusercontent.com/30645979/142281734-556dafd4-6900-4f8a-b4a0-b86a122f6b59.png)
 
-![image](https://user-images.githubusercontent.com/30645979/140667423-6f4c505e-7a95-484c-828a-89c0949aa017.png)
+HST
+![image](https://user-images.githubusercontent.com/30645979/142281920-4a0e9f87-bcda-41d5-a745-22e4b97ab585.png)
 
-
-![image](https://user-images.githubusercontent.com/30645979/140667477-28754026-059a-4dc9-abf1-5552705749ec.png)
-
-![image](https://user-images.githubusercontent.com/30645979/140667539-ccc7324e-6b29-47a1-aef7-d2349337a466.png)
-
-![image](https://user-images.githubusercontent.com/30645979/140667558-83a1f5d1-356e-4c1c-8b6a-1328c17e29dd.png)
-
-![image](https://user-images.githubusercontent.com/30645979/140667599-934cebd3-1b1d-4018-886f-7a62facb0535.png)
+GMT
+![image](https://user-images.githubusercontent.com/30645979/142282184-0ebdefa4-34c6-4329-8ec2-7f5033be39b9.png)
 
 
-![image](https://user-images.githubusercontent.com/30645979/140667613-c9571b1f-4f61-4739-a5ee-c1d2dae16450.png)
+All fields need to be filled
+![image](https://user-images.githubusercontent.com/30645979/142278058-d8db5e53-3f03-45c0-b4f7-25825351cbf3.png)
 
-![image](https://user-images.githubusercontent.com/30645979/140667633-fa8cf7dd-893e-43f4-b598-4396dc68ce11.png)
+If you have an appointment
+![image](https://user-images.githubusercontent.com/30645979/142278255-9bed938b-465d-4839-8c83-20653ecc2fef.png)
 
-![image](https://user-images.githubusercontent.com/30645979/140667677-0b8cf55f-88c2-4278-a955-07e3fc2e10b2.png)
 
+Adding appointment with a customer that already has an appointment
+![image](https://user-images.githubusercontent.com/30645979/142278733-939e8f01-5aec-4198-8ac9-c8f99e4ea15a.png)
+
+Error
+![image](https://user-images.githubusercontent.com/30645979/142278775-029cbbed-65e4-4e4e-8ae1-bea1bda5efed.png)
+
+Contact Appointment Reports
+![image](https://user-images.githubusercontent.com/30645979/142278986-40996c64-f8af-468a-b500-e1bd59ea1917.png)
+
+Location Appointment Reports
+![image](https://user-images.githubusercontent.com/30645979/142279084-60168e0f-6a82-4b45-a8ff-4994c877e712.png)
+
+Appointment Type By Month Report
+![image](https://user-images.githubusercontent.com/30645979/142281118-21556cd5-6d6b-4ad6-be57-d0c31b39d33b.png)
 ![image](https://user-images.githubusercontent.com/30645979/140667700-9d4419ef-a1fc-4bed-8992-fba7585ec16d.png)
