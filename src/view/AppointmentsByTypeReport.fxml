@@ -27,8 +27,8 @@
             <Button fx:id="CustomerButton" layoutX="24.0" layoutY="305.0" mnemonicParsing="false" onAction="#goToCustomers" prefHeight="35.0" prefWidth="133.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="Customers" />
          </children>
       </AnchorPane>
-      <Button fx:id="AprilButton" layoutX="778.0" layoutY="255.0" mnemonicParsing="false" onAction="#loadAprilTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="April" />
-      <Button fx:id="JanuaryButton" layoutX="777.0" layoutY="93.0" mnemonicParsing="false" onAction="#loadJanuaryTable" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="January" />
+      <Button fx:id="AprilButton" layoutX="837.0" layoutY="245.0" mnemonicParsing="false" onAction="#loadAprilTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="April" />
+      <Button fx:id="JanuaryButton" layoutX="837.0" layoutY="110.0" mnemonicParsing="false" onAction="#loadJanuaryTable" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="January" />
       <AnchorPane layoutX="-3.0" layoutY="2.0" prefHeight="76.0" prefWidth="1182.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #3A3B3C; -fx-border-width: 10;">
          <children>
             <AnchorPane layoutX="18.0" layoutY="34.0" prefHeight="35.0" prefWidth="658.0" style="-fx-background-color: #FFFFFF;">
@@ -41,16 +41,19 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button fx:id="MarchButton" layoutX="777.0" layoutY="201.0" mnemonicParsing="false" onAction="#loadMarchTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="March" />
-      <Label fx:id="typeName" layoutX="249.0" layoutY="298.0" prefHeight="30.0" prefWidth="370.0" text="Month" />
-      <Button fx:id="FebruaryButton" layoutX="775.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadFebruaryTable" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="February" />
-      <Button fx:id="MayButton" layoutX="888.0" layoutY="93.0" mnemonicParsing="false" onAction="#loadMayTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="May" />
-      <Button fx:id="JuneButton" layoutX="888.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadJuneTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="June" />
-      <Button fx:id="JulyButton" layoutX="888.0" layoutY="201.0" mnemonicParsing="false" onAction="#loadJulyTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="July" />
-      <Button fx:id="August" layoutX="888.0" layoutY="255.0" mnemonicParsing="false" onAction="#loadAugustTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="August" />
-      <Button fx:id="SeptemberButton" layoutX="1004.0" layoutY="93.0" mnemonicParsing="false" onAction="#loadSeptemberTable" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="September" />
-      <Button fx:id="OctoberButton" layoutX="1004.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadOctoberTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="October" />
-      <Button fx:id="NovemberButton" layoutX="1004.0" layoutY="201.0" mnemonicParsing="false" onAction="#loadNovemberTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="November" />
-      <Button fx:id="DecemberButton" layoutX="1004.0" layoutY="255.0" mnemonicParsing="false" onAction="#loadDecemberTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="December" />
+      <Button fx:id="MarchButton" layoutX="837.0" layoutY="201.0" mnemonicParsing="false" onAction="#loadMarchTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="March" />
+      <Label fx:id="typeName" layoutX="205.0" layoutY="311.0" prefHeight="35.0" prefWidth="566.0" text="Month">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Button fx:id="FebruaryButton" layoutX="834.0" layoutY="156.0" mnemonicParsing="false" onAction="#loadFebruaryTable" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="February" />
+      <Button fx:id="MayButton" layoutX="940.0" layoutY="110.0" mnemonicParsing="false" onAction="#loadMayTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="May" />
+      <Button fx:id="JuneButton" layoutX="940.0" layoutY="156.0" mnemonicParsing="false" onAction="#loadJuneTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="June" />
+      <Button fx:id="JulyButton" layoutX="940.0" layoutY="201.0" mnemonicParsing="false" onAction="#loadJulyTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="July" />
+      <Button fx:id="August" layoutX="940.0" layoutY="245.0" mnemonicParsing="false" onAction="#loadAugustTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="August" />
+      <Button fx:id="SeptemberButton" layoutX="1047.0" layoutY="110.0" mnemonicParsing="false" onAction="#loadSeptemberTable" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #4285F4; -fx-text-fill: #FFFFFF;" text="September" />
+      <Button fx:id="OctoberButton" layoutX="1047.0" layoutY="156.0" mnemonicParsing="false" onAction="#loadOctoberTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #34A853; -fx-text-fill: #FFFFFF;" text="October" />
+      <Button fx:id="NovemberButton" layoutX="1047.0" layoutY="201.0" mnemonicParsing="false" onAction="#loadNovemberTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #FBBC05; -fx-text-fill: #FFFFFF;" text="November" />
+      <Button fx:id="DecemberButton" layoutX="1047.0" layoutY="245.0" mnemonicParsing="false" onAction="#loadDecemberTable" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #EA4335; -fx-text-fill: #FFFFFF;" text="December" />
    </children>
 </AnchorPane>
