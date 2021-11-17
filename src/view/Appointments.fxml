@@ -52,9 +52,9 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Label fx:id="appointmentLabel" layoutX="168.0" layoutY="283.0" prefHeight="35.0" prefWidth="610.0" text="All Appointments">
+      <Label fx:id="appointmentLabel" layoutX="168.0" layoutY="283.0" prefHeight="35.0" prefWidth="993.0" text="All Appointments">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
    </children>
