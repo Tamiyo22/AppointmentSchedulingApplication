@@ -24,10 +24,10 @@ each pair, and create Appointment type objects. I choose the lambda expression f
 **Login Screen**
 ![image](https://user-images.githubusercontent.com/30645979/142281468-bffee522-3ad0-473f-9f83-b61f2feba53a.png)
 
-**Login Screen for France**
+**Login Screen for French language speakers**
 ![image](https://user-images.githubusercontent.com/30645979/142286594-39f637d9-9688-45a5-a5b2-8e9fecd062db.png)
 
-**Exception handling in both English and Frence depending on user location and language preferences.**
+**Exception handling in both English and French depending on user location and language preferences.**
 ![image](https://user-images.githubusercontent.com/30645979/142286724-2f877679-6b84-4e8c-a753-58dff640724e.png)
 
 **Multi Language Confirmation**
