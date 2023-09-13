@@ -1,5 +1,10 @@
 # AppointmentSchedulingApplication
-A GUI-based scheduling desktop application that pulls and creates data from a MySQL database. It works with multiple time zones and allows for multilanguage log-in for English and French speakers.
+•	CRUD based console application in Java and JavaFX.
+•	Identity and role-based access/rendering for consultant, customer, and administrator.
+•	Object-relational mapping with JDBC and MySQL database.
+•	Adjustments for time zone and daylight savings time.
+•	Multi-language log-in support in English and French.
+
 
 •  Appointment Scheduler for Employees, The purpose is to help employees of a global consulting organization organize their meetings, and customers
 while providing their data analyst reports to analyze  in order to help the organization focus which areas need additional focus.
