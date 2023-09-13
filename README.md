@@ -1,8 +1,12 @@
 # AppointmentSchedulingApplication
 •	CRUD based console application in Java and JavaFX.
+
 •	Identity and role-based access/rendering for consultant, customer, and administrator.
+
 •	Object-relational mapping with JDBC and MySQL database.
+
 •	Adjustments for time zone and daylight savings time.
+
 •	Multi-language log-in support in English and French.
 
 
